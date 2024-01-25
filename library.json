@@ -1,0 +1,19 @@
+{
+  "name": "TFT_Arduino",
+  "version": "1.o",
+  "description": "Additional sourcefiles for TFT_eSPI when building with stm32cubeide or platformio's stm32cube platform",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/wvdakker/TFT_Arduino"
+  },
+  "authors":
+  [
+    {
+        "name": "WvdAkker",
+        "maintainer": true
+    }
+  ],
+  "frameworks": "arduino, stm32cube",
+  "platforms": "raspberrypi, espressif8266, espressif32, ststm32",
+}
