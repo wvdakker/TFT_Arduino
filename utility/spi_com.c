@@ -44,12 +44,12 @@ spi_status_e spi_transfer(spi_t *obj, const uint8_t *tx_buffer, uint8_t *rx_buff
   } else {
     tickstart = HAL_GetTick();
 
-#if defined(SPI_CR2_TSIZE)
+//#if defined(SPI_CR2_TSIZE)
     /* Start transfer */
-    LL_SPI_SetTransferSize(_SPI, size);
+ //   LL_SPI_SetTransferSize(_SPI, size);
     LL_SPI_Enable(_SPI);
-    LL_SPI_StartMasterTransfer(_SPI);
-#endif
+ //   LL_SPI_StartMasterTransfer(_SPI);
+//#endif
 
     while (size--) {
 #if defined(SPI_SR_TXP)
@@ -62,18 +62,18 @@ spi_status_e spi_transfer(spi_t *obj, const uint8_t *tx_buffer, uint8_t *rx_buff
 #if defined(SPI_SR_RXP)
       while (!LL_SPI_IsActiveFlag_RXP(_SPI));
 #else
-      while (!LL_SPI_IsActiveFlag_RXNE(_SPI));
+//      while (!LL_SPI_IsActiveFlag_RXNE(_SPI));
 #endif
-      if (rx_buffer) {
-        *rx_buffer++ = LL_SPI_ReceiveData8(_SPI);
-      } else {
-        LL_SPI_ReceiveData8(_SPI);
-      }
-      if ((SPI_TRANSFER_TIMEOUT != HAL_MAX_DELAY) &&
-          (HAL_GetTick() - tickstart >= SPI_TRANSFER_TIMEOUT)) {
-        ret = SPI_TIMEOUT;
-        break;
-      }
+//      if (rx_buffer) {
+//        *rx_buffer++ = LL_SPI_ReceiveData8(_SPI);
+//      } else {
+//        LL_SPI_ReceiveData8(_SPI);
+//      }
+//      if ((SPI_TRANSFER_TIMEOUT != HAL_MAX_DELAY) &&
+//          (HAL_GetTick() - tickstart >= SPI_TRANSFER_TIMEOUT)) {
+//        ret = SPI_TIMEOUT;
+//        break;
+ //     }
     }
 
     while (LL_SPI_IsActiveFlag_BSY(_SPI));

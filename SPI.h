@@ -27,12 +27,6 @@ class SPIClass {
     void begin(void);
     void end(void);
 
-    /* This function should be used to configure the SPI instance in case you
-     * don't use default parameters.
-     */
-    void beginTransaction();
-    void endTransaction(void);
-
     /* Transfer functions: must be called after initialization of the SPI
      * instance with begin() or beginTransaction().
      */
