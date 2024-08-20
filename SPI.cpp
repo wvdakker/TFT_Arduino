@@ -26,6 +26,7 @@ SPIClass::SPIClass()
 void SPIClass::begin(void)
 {
   _spi.spi = SPI1;
+  SET_BIT(SPI1->CR1, SPI_CR1_SPE);
 }
 
 
@@ -34,6 +35,7 @@ void SPIClass::begin(void)
   */
 void SPIClass::end(void)
 {
+  CLEAR_BIT(SPI1->CR1, SPI_CR1_SPE);
 }
 
 /**
