@@ -23,10 +23,10 @@ SPIClass::SPIClass()
 /**
   * @brief  Initialize the SPI instance.
   */
-void SPIClass::begin(void)
+void SPIClass::begin(SPI_TypeDef *SPI_TFT)
 {
-  _spi.spi = SPI1;
-  SET_BIT(SPI1->CR1, SPI_CR1_SPE);
+  _spi.spi = SPI_TFT;
+  SET_BIT(_spi.spi->CR1, SPI_CR1_SPE);
 }
 
 
@@ -35,7 +35,7 @@ void SPIClass::begin(void)
   */
 void SPIClass::end(void)
 {
-  CLEAR_BIT(SPI1->CR1, SPI_CR1_SPE);
+  CLEAR_BIT(_spi.spi->CR1, SPI_CR1_SPE);
 }
 
 /**

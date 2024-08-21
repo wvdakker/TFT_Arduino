@@ -24,7 +24,7 @@ class SPIClass {
   public:
     SPIClass();
 
-    void begin(void);
+    void begin(SPI_TypeDef *);
     void end(void);
 
     /* Transfer functions: must be called after initialization of the SPI
